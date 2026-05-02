@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Whack-A-Mole 🐭</title>
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <div class="contenedor">
+      <h1>🐭 Whack-A-Mole</h1>
+
+      <!-- MARCADOR -->
+      <div class="marcador">
+        <div class="stat">
+          <span class="stat-label">Puntaje</span>
+          <span class="stat-valor" id="puntaje">0</span>
+        </div>
+        <div class="stat stat--tiempo">
+          <span class="stat-label">Tiempo</span>
+          <span class="stat-valor" id="tiempo">30</span>
+        </div>
+        <div class="stat">
+          <span class="stat-label">🏆 Récord</span>
+          <span class="stat-valor" id="high-score">0</span>
+        </div>
+      </div>
+
+      <!-- JARDÍN DE LOS TOPOS (9 hoyos) -->
+      <div id="jardin">
+        <div class="hoyo" data-id="0"><div class="topo">🐭</div></div>
+        <div class="hoyo" data-id="1"><div class="topo">🐭</div></div>
+        <div class="hoyo" data-id="2"><div class="topo">🐭</div></div>
+        <div class="hoyo" data-id="3"><div class="topo">🐭</div></div>
+        <div class="hoyo" data-id="4"><div class="topo">🐭</div></div>
+        <div class="hoyo" data-id="5"><div class="topo">🐭</div></div>
+        <div class="hoyo" data-id="6"><div class="topo">🐭</div></div>
+        <div class="hoyo" data-id="7"><div class="topo">🐭</div></div>
+        <div class="hoyo" data-id="8"><div class="topo">🐭</div></div>
+      </div>
+
+      <!-- CONTROLES -->
+      <div class="controles">
+        <button id="btn-iniciar">▶ Iniciar Partida</button>
+      </div>
+
+      <!-- MENSAJE FINAL -->
+      <div id="mensaje-final" class="oculto">
+        <p id="texto-final"></p>
+      </div>
+    </div>
+
+    <script src="./js/app.js"></script>
+  </body>
+</html>
