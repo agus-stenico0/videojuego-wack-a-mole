@@ -1,0 +1,179 @@
+/* ==========================================================================
+   WHACK-A-MOLE — El Jardín de los Topos 🌿
+   Estética: jardín nocturno con topos que emergen de la tierra
+========================================================================== */
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(180deg, #1a2a0a 0%, #0d1a05 100%);
+  color: #ffffff;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.contenedor {
+  text-align: center;
+  max-width: 520px;
+  width: 100%;
+  padding: 20px;
+}
+
+h1 {
+  font-size: 2.5rem;
+  color: #adff2f;
+  margin-bottom: 24px;
+  text-shadow: 0 0 12px #adff2f66;
+}
+
+/* ====================================================
+   MARCADOR
+==================================================== */
+.marcador {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #1e3a0e;
+  border: 2px solid #4a7c23;
+  border-radius: 12px;
+  padding: 10px 20px;
+  min-width: 90px;
+}
+
+.stat--tiempo {
+  border-color: #ffaa00;
+}
+
+.stat-label {
+  font-size: 0.75rem;
+  color: #7db356;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.stat-valor {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #adff2f;
+  line-height: 1.2;
+}
+
+.stat--tiempo .stat-valor {
+  color: #ffaa00;
+}
+
+/* ====================================================
+   JARDÍN (Tablero de 3x3)
+==================================================== */
+#jardin {
+  display: grid;
+  grid-template-columns: repeat(3, 140px);
+  gap: 16px;
+  justify-content: center;
+  margin-bottom: 32px;
+}
+
+/* === EL HOYO === */
+.hoyo {
+  width: 140px;
+  height: 120px;
+  background: radial-gradient(ellipse at bottom, #3b200a 0%, #1e0f05 100%);
+  border-radius: 50% 50% 8px 8px;
+  border: 3px solid #5a3010;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.1s ease;
+}
+
+.hoyo:hover .topo {
+  filter: brightness(1.2);
+}
+
+/* === EL TOPO (escondido por defecto) === */
+.topo {
+  font-size: 3.5rem;
+  position: absolute;
+  bottom: -70px; /* empieza escondido bajo tierra */
+  left: 50%;
+  transform: translateX(-50%);
+  transition: bottom 0.18s cubic-bezier(0.34, 1.56, 0.64, 1);
+  user-select: none;
+  line-height: 1;
+}
+
+/* === CUANDO EL TOPO ASOMA (clase "visible") === */
+.hoyo.visible .topo {
+  bottom: 8px; /* sube a la superficie */
+}
+
+/* Efecto de golpe */
+.hoyo.golpeado .topo {
+  filter: grayscale(1) brightness(0.6);
+  bottom: -70px;
+}
+
+/* ====================================================
+   BOTÓN
+==================================================== */
+.controles {
+  margin-bottom: 20px;
+}
+
+#btn-iniciar {
+  padding: 14px 40px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  background-color: #adff2f;
+  color: #0d1a05;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition:
+    transform 0.1s,
+    box-shadow 0.2s;
+  box-shadow: 0 0 16px #adff2f55;
+}
+
+#btn-iniciar:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 24px #adff2f88;
+}
+
+#btn-iniciar:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ====================================================
+   MENSAJE FINAL
+==================================================== */
+#mensaje-final {
+  background-color: #1e3a0e;
+  border: 2px solid #adff2f;
+  border-radius: 12px;
+  padding: 16px 24px;
+  font-size: 1.1rem;
+  color: #adff2f;
+  transition: opacity 0.3s;
+}
+
+#mensaje-final.oculto {
+  display: none;
+}
